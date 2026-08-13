@@ -1,4 +1,4 @@
-namespace gestorDeBiblioteca.Feature.Libro.DTO;
+namespace GESTORDEBIBLIOTECA.Feature.Libro.DTO;
 
 public class LibroResponseDto
 {
