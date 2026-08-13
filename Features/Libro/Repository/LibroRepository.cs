@@ -26,7 +26,27 @@ public class LibroRepository : ILibroRepository
         return await _connection.QueryFirstOrDefaultAsync<Libro>(query, new{Id = id});
     }
 
+    public async Task<Libro> CreateLibro(Libro libro)
+    {
+        var query = "INSERT INTO Libros (titulo, autor, ISBN, cantidad_disponible) VALUES (@titulo, @Autor, @ISBN, @CantidadDisponible) RETURNING id)";
+        var id = await _connection.QuerySingleAsync<int>(query, libro);
+        libro.Id = id;
+        return libro;
+    }
 
+    public async Task<bool> LibroUpdate (int id, Libro libro)
+    {
+        var query = "UPDATE libros SET titulo = @Titulo, autor = @Autor, isbn = @ISBN, cantidad_disponible = @CantidadDisponible WHERE id = @Id";
+        var rowsAffected = await _connection.ExecuteAsync(query, new { libro.Titulo, libro.Autor, libro.ISBN, libro.CantidadDisponible, Id = id });
+        return rowsAffected > 0;     
+    }
+
+    public async Task<bool> DeleteLibro(int id)
+    {
+        var query = "DELETE FROM Libros WHERE id = @Id";
+        var rowsAffected = await _connection.ExecuteAsync(query, new { Id = id });
+        return rowsAffected > 0;
+    }
 
     
 }
