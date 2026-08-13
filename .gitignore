@@ -1,0 +1,14 @@
+# Archivos de datos de Docker (si creas carpetas para persistencia de datos)
+.docker/
+data/
+db_data/
+
+# Archivos de entorno con contraseñas y llaves secretas
+.env
+*.env
+
+# Archivos comunes de dependencias (por si acaso)
+node_modules/
+__pycache__/
+.venv/
+target/
