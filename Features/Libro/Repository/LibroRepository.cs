@@ -20,6 +20,12 @@ public class LibroRepository : ILibroRepository
         return await _connection.QueryAsync<Libro>(query);
     }
 
+    public async Task<Libro?> GetLibroById(int id)
+    {
+        var query = "SELECT id, titulo, autor, isbn, cantidad_disponible AS CantidadDisponible FROM libros WHERE id = @Id";
+        return await _connection.QueryFirstOrDefaultAsync<Libro>(query, new{Id = id});
+    }
+
 
 
     
