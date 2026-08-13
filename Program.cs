@@ -1,4 +1,6 @@
+using System.Data;
 using Dapper;
+using GESTORDEBIBLIOTECA.Features.Libro.Repository;
 using Microsoft.AspNetCore.Http.Features;
 using Npgsql;
 
@@ -10,8 +12,9 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
-
+builder.Services.AddScoped<IDbConnection>(sp => new NpgsqlConnection(connectionString));
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddScoped<ILibroRepository, LibroRepository>();
 
 var app = builder.Build();
 
@@ -22,27 +25,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
-
-// Endpoint de prueba para verificar la conexión a PostgreSQL
-app.MapGet("/health-db", async (IConfiguration config) =>
-{
-    var connectionString = config.GetConnectionString("DefaultConnection");
-
-    try
-    {
-        using var connection = new NpgsqlConnection(connectionString);
-        await connection.OpenAsync();
-        
-        var version = await connection.QuerySingleAsync<string>("SELECT version();");
-        return Results.Ok(new { Mensaje = "Conexión exitosa a PostgreSQL", Version = version });
-    }
-    catch (Exception ex)
-    {
-        return Results.Problem($"Error al conectar a la base de datos: {ex.Message}");
-    }
-});
-
 
 app.Run();
 
