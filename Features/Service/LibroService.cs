@@ -20,6 +20,21 @@ public class LibroService : ILibroService
       return libros.Select(l => l.ToResponse());
    }
 
+   public async Task<LibroResponseDto?> GetLibroById (int id)
+   {
+      var libro = await _repository.GetLibroById(id);
+      return libro?.ToResponse();
+   }
+
+   public async Task<LibroResponseDto> CreateLibro (LibroCreateDto libroCreateDto)
+   {
+      var libroEntity = libroCreateDto.ToEntity();
+      var libroNuevo = await _repository.CreateLibro(libroEntity);
+
+      return libroNuevo.ToResponse();
+   }
+
+   
 
 
 
