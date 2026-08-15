@@ -23,3 +23,5 @@ obj/
 appsettings.json
 appsettings.Development.json
 *.env
+appsettings.*.json
+
