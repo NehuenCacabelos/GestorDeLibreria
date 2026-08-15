@@ -34,7 +34,16 @@ public class LibroService : ILibroService
       return libroNuevo.ToResponse();
    }
 
-   
+   public async Task<bool>LibroUpdate (int id, LibroUpdateDto libroUpdateDto)
+   {
+      var libroEntity = libroUpdateDto.ToEntity();
+      return await _repository.LibroUpdate(id, libroEntity);
+   }
+
+   public async Task<bool> DeleteLibro(int id)
+   {
+      return await _repository.DeleteLibro(id);
+   }
 
 
 

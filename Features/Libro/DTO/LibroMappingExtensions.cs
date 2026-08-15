@@ -14,6 +14,17 @@ public static class LibroMappingExtensions
         };
     }
 
+    public static Libro ToEntity(this LibroUpdateDto libroUpdateDto)
+    {
+        return new Libro
+        {
+            Titulo = libroUpdateDto.Titulo,
+            Autor = libroUpdateDto.Autor,
+            ISBN = libroUpdateDto.ISBN,
+            CantidadDisponible = libroUpdateDto.CantidadDisponible
+        };
+    }
+
     public static LibroResponseDto ToResponse(this Libro libro)
     {
         return new LibroResponseDto
@@ -33,9 +44,4 @@ public static class LibroMappingExtensions
         libro.ISBN = libroUpdateDto.ISBN;
         libro.CantidadDisponible = libroUpdateDto.CantidadDisponible;
     }
-
-
-
-
-
 }
