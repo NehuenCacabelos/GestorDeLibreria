@@ -1,6 +1,6 @@
 using System.ComponentModel.Design;
-using GESTORDEBIBLIOTECA.Feature.Libro.DTO;
-using GESTORDEBIBLIOTECA.Feature.Libro.Model;
+using GESTORDEBIBLIOTECA.Features.Libro.DTO;
+using GESTORDEBIBLIOTECA.Features.Libro.Model;
 using GESTORDEBIBLIOTECA.Features.Libro.Repository;
 
 namespace GESTORDEBIBLIOTECA.Features.Libro.Service;
@@ -34,10 +34,10 @@ public class LibroService : ILibroService
       return libroNuevo.ToResponse();
    }
 
-   public async Task<bool>LibroUpdate (int id, LibroUpdateDto libroUpdateDto)
+   public async Task<bool>UpdateLibro (int id, LibroUpdateDto libroUpdateDto)
    {
       var libroEntity = libroUpdateDto.ToEntity();
-      return await _repository.LibroUpdate(id, libroEntity);
+      return await _repository.UpdateLibro(id, libroEntity);
    }
 
    public async Task<bool> DeleteLibro(int id)
