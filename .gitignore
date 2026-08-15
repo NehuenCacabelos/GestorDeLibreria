@@ -16,3 +16,10 @@ target/
 # Carpetas de compilación e intermedias de .NET
 bin/
 obj/
+.vs/
+.vscode/
+
+# Archivos de configuración local con credenciales
+appsettings.json
+appsettings.Development.json
+*.env
