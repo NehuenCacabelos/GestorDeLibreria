@@ -1,4 +1,4 @@
-using GESTORDEBIBLIOTECA.Feature.Libro.DTO;
+using GESTORDEBIBLIOTECA.Features.Libro.DTO;
 
 namespace GESTORDEBIBLIOTECA.Features.Libro.Service;
 

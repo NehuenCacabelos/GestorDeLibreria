@@ -1,6 +1,5 @@
-namespace GESTORDEBIBLIOTECA.Feature.Libro.DTO;
-
-using GESTORDEBIBLIOTECA.Feature.Libro.Model;
+namespace GESTORDEBIBLIOTECA.Features.Libro.DTO;
+using GESTORDEBIBLIOTECA.Features.Libro.Model;
 public static class LibroMappingExtensions
 {
     public static Libro ToEntity(this LibroCreateDto libroCreateDto)

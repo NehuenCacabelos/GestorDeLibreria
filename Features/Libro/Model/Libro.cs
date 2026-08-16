@@ -1,4 +1,4 @@
-namespace GESTORDEBIBLIOTECA.Feature.Libro.Model;
+namespace GESTORDEBIBLIOTECA.Features.Libro.Model;
 
 public class Libro
 {

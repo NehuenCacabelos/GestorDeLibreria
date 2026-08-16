@@ -1,4 +1,4 @@
-namespace GESTORDEBIBLIOTECA.Feature.Libro.DTO;
+namespace GESTORDEBIBLIOTECA.Features.Libro.DTO;
 
 public class LibroUpdateDto
 {

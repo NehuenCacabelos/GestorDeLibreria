@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace GESTORDEBIBLIOTECA.Feature.Libro.DTO;
+namespace GESTORDEBIBLIOTECA.Features.Libro.DTO;
 
 public class LibroCreateDto
 {

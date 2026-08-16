@@ -28,5 +28,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.MapLibroEndpoints();
+
 app.Run();
 

@@ -65,3 +65,4 @@ C:\Codigo General\VSCode\GestorDeBiblioteca\obj\Debug\net10.0\refint\GestorDeBib
 C:\Codigo General\VSCode\GestorDeBiblioteca\obj\Debug\net10.0\GestorDeBiblioteca.pdb
 C:\Codigo General\VSCode\GestorDeBiblioteca\obj\Debug\net10.0\GestorDeBiblioteca.genruntimeconfig.cache
 C:\Codigo General\VSCode\GestorDeBiblioteca\obj\Debug\net10.0\ref\GestorDeBiblioteca.dll
+C:\Codigo General\VSCode\GestorDeBiblioteca\obj\Debug\net10.0\GestorDeBiblioteca.sourcelink.json
