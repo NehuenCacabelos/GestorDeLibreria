@@ -2,6 +2,8 @@ using System.Data;
 using Dapper;
 using GESTORDEBIBLIOTECA.Features.Libro.Repository;
 using GESTORDEBIBLIOTECA.Features.Libro.Service;
+using GESTORDEBIBLIOTECA.Features.Socio.Repository;
+
 using Microsoft.AspNetCore.Http.Features;
 using Npgsql;
 
@@ -17,6 +19,10 @@ builder.Services.AddScoped<IDbConnection>(sp => new NpgsqlConnection(connectionS
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddScoped<ILibroRepository, LibroRepository>();
 builder.Services.AddScoped<ILibroService, LibroService>();
+builder.Services.AddScoped<ISocioRepository, SocioRepository>();
+
+
+
 
 var app = builder.Build();
 
