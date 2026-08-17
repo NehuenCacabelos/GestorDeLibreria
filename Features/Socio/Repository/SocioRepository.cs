@@ -9,7 +9,7 @@ public class SocioRepository : ISocioRepository
 {
     private readonly IDbConnection _connection;
 
-    public SocioRepository (DbConnection connection)
+    public SocioRepository (IDbConnection connection)
     {
         _connection = connection;
     }

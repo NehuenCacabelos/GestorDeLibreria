@@ -1,11 +1,12 @@
 using System.Data;
+using Npgsql;
 using Dapper;
 using GESTORDEBIBLIOTECA.Features.Libro.Repository;
 using GESTORDEBIBLIOTECA.Features.Libro.Service;
+using GESTORDEBIBLIOTECA.Features.Socio.Endopoint;
 using GESTORDEBIBLIOTECA.Features.Socio.Repository;
-
+using GESTORDEBIBLIOTECA.Features.Socio.Service;
 using Microsoft.AspNetCore.Http.Features;
-using Npgsql;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,6 +21,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddScoped<ILibroRepository, LibroRepository>();
 builder.Services.AddScoped<ILibroService, LibroService>();
 builder.Services.AddScoped<ISocioRepository, SocioRepository>();
+builder.Services.AddScoped<ISocioService, SocioService>();
 
 
 
@@ -35,6 +37,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.MapLibroEndpoints();
+app.MapSocioEndpoints();
 
 app.Run();
 
