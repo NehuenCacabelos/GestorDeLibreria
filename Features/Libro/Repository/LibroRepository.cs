@@ -2,7 +2,7 @@ using System.Data;
 
 namespace GESTORDEBIBLIOTECA.Features.Libro.Repository;
 
-using Dapper;
+using Dapper; 
 using GESTORDEBIBLIOTECA.Features.Libro.Model;
 
 public class LibroRepository : ILibroRepository
@@ -13,7 +13,7 @@ public class LibroRepository : ILibroRepository
     {
         _connection = connection;
     }
-
+    
     public async Task<IEnumerable<Libro>> GetAllLibros()
     {
         var query = "SELECT id, titulo, autor, isbn, cantidaddisponible AS CantidadDisponible FROM libros";
