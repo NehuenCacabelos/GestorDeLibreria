@@ -39,10 +39,16 @@ public class LibroRepository : ILibroRepository
 
     public async Task<bool> UpdateLibro (int id, Libro libro)
     {
-        var query = "UPDATE libros SET titulo = @Titulo, autor = @Autor, isbn = @ISBN, cantidaddisponible = @CantidadDisponible WHERE id = @Id";
+        var sql = @"
+            UPDATE Libros 
+            SET titulo = @Titulo, 
+                autor = @Autor, 
+                isbn = @ISBN, 
+                cantidaddisponible = @CantidadDisponible
+            WHERE id = @Id;";
 
         libro.Id = id;
-        var rowsAffected = await _connection.ExecuteAsync(query, libro);
+        var rowsAffected = await _connection.ExecuteAsync(sql, libro);
         return rowsAffected > 0;     
     }
 
@@ -55,14 +61,14 @@ public class LibroRepository : ILibroRepository
 
     public async Task<bool> ExistISBN (string isbn)
     {
-        var query = "SELECT COUNT(1) FROM Libros WHERE ISBN = @isbn;";
+        var query = "SELECT COUNT(1) FROM Libros WHERE ISBN = @isbn";
         var count = await _connection.ExecuteScalarAsync<int>(query, new {isbn});
         return count > 0;
     }
     public async Task<bool> ExistISBNconID(string isbn, int id)
     {
-        var query = "SELECT COUNT(1) FROM Libros WHERE  ISBN = @isbn AND id <> @id;";
-        var count = await _connection.ExecuteScalarAsync<int>(query, new {id});
+        var query = "SELECT COUNT(1) FROM Libros WHERE ISBN = @isbn AND id <> @Id;";
+        var count = await _connection.ExecuteScalarAsync<int>(query, new {isbn, id});
         return count > 0;
     }
 

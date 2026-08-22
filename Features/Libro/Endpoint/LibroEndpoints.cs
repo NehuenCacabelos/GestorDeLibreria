@@ -28,7 +28,7 @@ public static class LibroEndpoints
         group.MapPut("/{id:int}", async (int id, LibroUpdateDto dto, ILibroService service)=>
         {
             var libro = await service.UpdateLibro(id, dto);
-            return libro ? Results.NoContent() : Results.NotFound();
+            return Results.NoContent();
         });
 
         group.MapDelete("/{id:int}", async (int id, ILibroService service) =>
