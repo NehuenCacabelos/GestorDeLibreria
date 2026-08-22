@@ -45,10 +45,24 @@ public class LibroService : ILibroService
       return libroNuevo.ToResponse();
    }
 
-   public async Task<bool>UpdateLibro (int id, LibroUpdateDto libroUpdateDto)
+   public async Task<LibroResponseDto> UpdateLibro (int id, LibroUpdateDto libroUpdateDto)
    {
+      var existe = await _repository.GetLibroById(id);
+      if (existe is null)
+      {
+         throw new NotFoundException("Libro no encontrado");
+      }
+      var existeConISBN = await _repository.ExistISBNconID(libroUpdateDto.ISBN, id);
+      if (existeConISBN)
+      {
+         throw new ConflictException("El ISBN ya existe");
+      }
       var libroEntity = libroUpdateDto.ToEntity();
-      return await _repository.UpdateLibro(id, libroEntity);
+      libroEntity.Id = id;
+
+      await _repository.UpdateLibro(id, libroEntity);
+
+      return libroEntity.ToResponse();
    }
 
    public async Task<bool> DeleteLibro(int id)

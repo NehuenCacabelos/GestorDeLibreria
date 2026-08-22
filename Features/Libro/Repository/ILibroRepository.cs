@@ -10,4 +10,5 @@ public interface ILibroRepository
     Task<bool> UpdateLibro(int id, Libro libro);
     Task<bool> DeleteLibro(int id);
     Task<bool> ExistISBN (string isbn);
+    Task<bool> ExistISBNconID (string isbn, int id);
 }

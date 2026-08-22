@@ -59,9 +59,9 @@ public class LibroRepository : ILibroRepository
         var count = await _connection.ExecuteScalarAsync<int>(query, new {isbn});
         return count > 0;
     }
-    public async Task<bool> ExistID(int id)
+    public async Task<bool> ExistISBNconID(string isbn, int id)
     {
-        var query = "SELECT COUNT(1) FROM Libros WHERE id = @id;";
+        var query = "SELECT COUNT(1) FROM Libros WHERE  ISBN = @isbn AND id <> @id;";
         var count = await _connection.ExecuteScalarAsync<int>(query, new {id});
         return count > 0;
     }
