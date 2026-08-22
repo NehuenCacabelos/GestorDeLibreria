@@ -1,26 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "/mnt/almacenamiento/proyectos/GestorDeBiblioteca/GestorDeLibreria/GestorDeBiblioteca.csproj": {}
+    "C:\\Codigo General\\VSCode\\GestorDeBiblioteca\\GestorDeBiblioteca.csproj": {}
   },
   "projects": {
-    "/mnt/almacenamiento/proyectos/GestorDeBiblioteca/GestorDeLibreria/GestorDeBiblioteca.csproj": {
+    "C:\\Codigo General\\VSCode\\GestorDeBiblioteca\\GestorDeBiblioteca.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/mnt/almacenamiento/proyectos/GestorDeBiblioteca/GestorDeLibreria/GestorDeBiblioteca.csproj",
+        "projectUniqueName": "C:\\Codigo General\\VSCode\\GestorDeBiblioteca\\GestorDeBiblioteca.csproj",
         "projectName": "GestorDeBiblioteca",
-        "projectPath": "/mnt/almacenamiento/proyectos/GestorDeBiblioteca/GestorDeLibreria/GestorDeBiblioteca.csproj",
-        "packagesPath": "/home/nehuen/.nuget/packages/",
-        "outputPath": "/mnt/almacenamiento/proyectos/GestorDeBiblioteca/GestorDeLibreria/obj/",
+        "projectPath": "C:\\Codigo General\\VSCode\\GestorDeBiblioteca\\GestorDeBiblioteca.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Codigo General\\VSCode\\GestorDeBiblioteca\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/nehuen/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
         ],
         "sources": {
-          "/usr/lib64/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,7 +38,7 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.100"
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
         "net10.0": {
@@ -81,7 +80,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/10.0.111/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.AspNetCore": "(,10.0.32767]",
             "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",

@@ -53,5 +53,11 @@ public class LibroRepository : ILibroRepository
         return rowsAffected > 0;
     }
 
+    public async Task<bool> ExistISBN (string isbn)
+    {
+        var query = "SELECT COUNT(1) FROM Libros WHERE ISBN = @isbn;";
+        var count = await _connection.ExecuteScalarAsync<int>(query, new {isbn});
+        return count > 0;
+    }
     
 }
