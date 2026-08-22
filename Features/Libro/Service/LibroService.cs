@@ -1,4 +1,5 @@
 using System.ComponentModel.Design;
+using GESTORDEBIBLIOTECA.Features.Excepciones;
 using GESTORDEBIBLIOTECA.Features.Libro.DTO;
 using GESTORDEBIBLIOTECA.Features.Libro.Model;
 using GESTORDEBIBLIOTECA.Features.Libro.Repository;
@@ -28,6 +29,12 @@ public class LibroService : ILibroService
 
    public async Task<LibroResponseDto> CreateLibro (LibroCreateDto libroCreateDto)
    {
+      var existe = await _repository.ExistISBN(libroCreateDto.ISBN);
+      if (existe)
+      {
+         throw new ConflictException("El ISBN ya existe");
+      }
+
       var libroEntity = libroCreateDto.ToEntity();
       var libroNuevo = await _repository.CreateLibro(libroEntity);
 
@@ -44,6 +51,7 @@ public class LibroService : ILibroService
    {
       return await _repository.DeleteLibro(id);
    }
+
 
 
 
