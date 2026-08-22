@@ -24,6 +24,10 @@ public class LibroService : ILibroService
    public async Task<LibroResponseDto?> GetLibroById (int id)
    {
       var libro = await _repository.GetLibroById(id);
+      if (libro is null)
+      {
+         throw new NotFoundException("Libro no encontrado");
+      }
       return libro?.ToResponse();
    }
 

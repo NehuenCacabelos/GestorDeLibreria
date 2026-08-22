@@ -22,7 +22,7 @@ public static class LibroEndpoints
         group.MapPost("/", async (LibroCreateDto dto, ILibroService service) =>
         {
             var nuevoLibro = await service.CreateLibro(dto);
-            return Results.Created($"/api/libros/{nuevoLibro.Id}", nuevoLibro);
+            return TypedResults.Created($"/api/libros/{nuevoLibro.Id}", nuevoLibro);
         });
 
         group.MapPut("/{id:int}", async (int id, LibroUpdateDto dto, ILibroService service)=>

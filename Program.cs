@@ -7,6 +7,7 @@ using GESTORDEBIBLIOTECA.Features.Socio.Endopoint;
 using GESTORDEBIBLIOTECA.Features.Socio.Repository;
 using GESTORDEBIBLIOTECA.Features.Socio.Service;
 using Microsoft.AspNetCore.Http.Features;
+using GESTORDEBIBLIOTECA.Features.Excepciones;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,11 +23,15 @@ builder.Services.AddScoped<ILibroRepository, LibroRepository>();
 builder.Services.AddScoped<ILibroService, LibroService>();
 builder.Services.AddScoped<ISocioRepository, SocioRepository>();
 builder.Services.AddScoped<ISocioService, SocioService>();
+builder.Services.AddControllers();
+builder.Services.AddProblemDetails();
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 
 
 
 
 var app = builder.Build();
+app.UseExceptionHandler();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
